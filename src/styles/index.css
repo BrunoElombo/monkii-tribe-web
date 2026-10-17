@@ -1,0 +1,108 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+
+/*
+ * Monkii Tribe — monochromatic orange.
+ * Brand scale "monkii-*" is fixed; semantic colours (bg, surface, fg…)
+ * switch between the dark theme (default) and the light theme.
+ */
+@theme {
+  --color-monkii-50: #fff7ed;
+  --color-monkii-100: #ffedd5;
+  --color-monkii-200: #fed7aa;
+  --color-monkii-300: #fdba74;
+  --color-monkii-400: #fb923c;
+  --color-monkii-500: #f97316;
+  --color-monkii-600: #ea580c;
+  --color-monkii-700: #c2410c;
+  --color-monkii-800: #9a3412;
+  --color-monkii-900: #7c2d12;
+  --color-monkii-950: #431407;
+  --color-monkii-ink: #1c0a02;
+
+  --font-sans: "Inter Variable", "Inter", system-ui, sans-serif;
+  --font-display: "Stack Sans Headline", "Inter Variable", system-ui, sans-serif;
+  --font-logo: "Stack Sans Notch", "Stack Sans Headline", "Inter Variable", sans-serif;
+}
+
+@theme inline {
+  --color-bg: var(--mt-bg);
+  --color-surface: var(--mt-surface);
+  --color-elevated: var(--mt-elevated);
+  --color-line: var(--mt-line);
+  --color-fg: var(--mt-fg);
+  --color-muted: var(--mt-muted);
+}
+
+:root {
+  --mt-bg: #1c0a02;
+  --mt-surface: #2a1205;
+  --mt-elevated: #431407;
+  --mt-line: rgb(253 186 116 / 0.14);
+  --mt-fg: #fff7ed;
+  --mt-muted: #fdba74;
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --mt-bg: #fff7ed;
+  --mt-surface: #ffffff;
+  --mt-elevated: #ffedd5;
+  --mt-line: #fed7aa;
+  --mt-fg: #431407;
+  --mt-muted: #9a3412;
+  color-scheme: light;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  body {
+    @apply bg-bg text-fg font-sans antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display tracking-tight;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-monkii-400;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl bg-surface border border-line;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-line bg-bg px-3.5 py-2.5 text-sm text-fg placeholder:text-muted/50
+      focus:border-monkii-500 focus:outline-none focus:ring-2 focus:ring-monkii-500/30 disabled:opacity-60;
+  }
+
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-fg;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full border border-line px-3 py-1 text-xs font-medium text-muted;
+  }
+}
+
+/* Keep the player bar above the iOS home indicator */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Thin range slider for the player */
+input[type="range"].seek {
+  @apply h-1 w-full cursor-pointer appearance-none rounded-full bg-monkii-900;
+  accent-color: var(--color-monkii-500);
+}
