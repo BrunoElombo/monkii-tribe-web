@@ -8,12 +8,12 @@ import { formatNumber } from "../utils/format";
 
 /**
  * Chart building blocks.
- * The brand is a single hue, so every chart shows ONE series in monkii-600
- * (#EA580C passes the lightness, chroma and 3:1 contrast checks on both the
- * dark and light surfaces). Never two coloured series on the same plot:
+ * The brand is a single hue, so every chart shows ONE series in monkii-700
+ * (#AE661C has 4.2:1 contrast on both the dark and the light background;
+ * the lighter amber steps fail on the light one). Never two coloured series on the same plot:
  * a metric switch is used instead.
  */
-const MARK = "#EA580C";
+const MARK = "#AE661C";
 
 // ---------------------------------------------------------------- stat tile
 

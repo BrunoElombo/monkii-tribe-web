@@ -2,23 +2,31 @@
 @import "@fontsource-variable/inter";
 
 /*
- * Monkii Tribe — monochromatic orange.
+ * Monkii Tribe — monochromatic amber, taken from the hoodie of the gorilla logo
+ * (monkii-500 = #F2A444). The greys of its fur are the "graphite" neutrals.
  * Brand scale "monkii-*" is fixed; semantic colours (bg, surface, fg…)
  * switch between the dark theme (default) and the light theme.
+ * See monkii-infra/docs/Monkii_Tribe_Brand_Guide.docx.
  */
 @theme {
-  --color-monkii-50: #fff7ed;
-  --color-monkii-100: #ffedd5;
-  --color-monkii-200: #fed7aa;
-  --color-monkii-300: #fdba74;
-  --color-monkii-400: #fb923c;
-  --color-monkii-500: #f97316;
-  --color-monkii-600: #ea580c;
-  --color-monkii-700: #c2410c;
-  --color-monkii-800: #9a3412;
-  --color-monkii-900: #7c2d12;
-  --color-monkii-950: #431407;
-  --color-monkii-ink: #1c0a02;
+  --color-monkii-50: #fff8ee;
+  --color-monkii-100: #feefd8;
+  --color-monkii-200: #fcddb0;
+  --color-monkii-300: #f8c783;
+  --color-monkii-400: #f5b460;
+  --color-monkii-500: #f2a444;
+  --color-monkii-600: #d9862a;
+  --color-monkii-700: #ae661c;
+  --color-monkii-800: #874e1a;
+  --color-monkii-900: #653b17;
+  --color-monkii-950: #3a210c;
+  --color-monkii-ink: #1a0f05;
+
+  --color-graphite-100: #e6e6e6;
+  --color-graphite-300: #c8c8c8;
+  --color-graphite-500: #8c8c8c;
+  --color-graphite-700: #5a5a5a;
+  --color-graphite-900: #262626;
 
   --font-sans: "Inter Variable", "Inter", system-ui, sans-serif;
   --font-display: "Stack Sans Headline", "Inter Variable", system-ui, sans-serif;
@@ -35,23 +43,29 @@
 }
 
 :root {
-  --mt-bg: #1c0a02;
-  --mt-surface: #2a1205;
-  --mt-elevated: #431407;
-  --mt-line: rgb(253 186 116 / 0.14);
-  --mt-fg: #fff7ed;
-  --mt-muted: #fdba74;
+  --mt-bg: #1a0f05;
+  --mt-surface: #26170a;
+  --mt-elevated: #3a210c;
+  --mt-line: rgb(248 199 131 / 0.14);
+  --mt-fg: #fff8ee;
+  --mt-muted: #f8c783;
   color-scheme: dark;
 }
 
 :root[data-theme="light"] {
-  --mt-bg: #fff7ed;
+  --mt-bg: #fff8ee;
   --mt-surface: #ffffff;
-  --mt-elevated: #ffedd5;
-  --mt-line: #fed7aa;
-  --mt-fg: #431407;
-  --mt-muted: #9a3412;
+  --mt-elevated: #feefd8;
+  --mt-line: #fcddb0;
+  --mt-fg: #3a210c;
+  --mt-muted: #874e1a;
   color-scheme: light;
+}
+
+/* The light amber is made for dark screens: on the light theme, accent text
+   uses monkii-800 so it stays readable (6.3:1 instead of 2:1). */
+:root[data-theme="light"] :is(.text-monkii-300, .text-monkii-400, .text-monkii-500) {
+  color: var(--color-monkii-800);
 }
 
 @layer base {

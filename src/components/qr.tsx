@@ -9,7 +9,7 @@ export function QrCode({ value, size = 200 }: { value: string; size?: number }) 
   useEffect(() => {
     if (!canvasRef.current) return;
     // Dark modules on white: scanners need maximum contrast, whatever the app theme
-    void QRCode.toCanvas(canvasRef.current, value, { width: size, margin: 2, errorCorrectionLevel: "M", color: { dark: "#1C0A02", light: "#FFFFFF" } });
+    void QRCode.toCanvas(canvasRef.current, value, { width: size, margin: 2, errorCorrectionLevel: "M", color: { dark: "#1A0F05", light: "#FFFFFF" } });
   }, [value, size]);
 
   return <canvas ref={canvasRef} width={size} height={size} className="rounded-xl" aria-label={value} role="img" />;

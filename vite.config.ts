@@ -13,7 +13,7 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       injectRegister: "auto",
-      includeAssets: ["favicon.svg", "apple-touch-icon.png"],
+      includeAssets: ["favicon-32.png", "favicon-48.png", "apple-touch-icon.png"],
       manifest: {
         name: "Monkii Tribe",
         short_name: "Monkii",
@@ -22,8 +22,8 @@ export default defineConfig({
         start_url: "/",
         display: "standalone",
         orientation: "portrait",
-        theme_color: "#F97316",
-        background_color: "#1C0A02",
+        theme_color: "#1A0F05",
+        background_color: "#1A0F05",
         categories: ["music", "entertainment"],
         icons: [
           { src: "pwa-192.png", sizes: "192x192", type: "image/png" },
