@@ -39,11 +39,11 @@ export function EventsPage() {
             { value: "past", label: t("events.past") },
           ]}
         />
-        <Select className="w-48" value={country} onChange={(event) => setCountry(event.target.value)} aria-label={t("auth.country")}>
+        <Select className="w-full sm:w-48" value={country} onChange={(event) => setCountry(event.target.value)} aria-label={t("auth.country")}>
           <option value="">{t("events.allCountries")}</option>
           {countries.data?.countries.map((c) => <option key={c.code} value={c.code}>{c.name[language]}</option>)}
         </Select>
-        <Input className="w-48" value={cityInput} onChange={(event) => setCityInput(event.target.value)} placeholder={t("events.cityPlaceholder")} aria-label={t("auth.city")} />
+        <Input className="w-full sm:w-48" value={cityInput} onChange={(event) => setCityInput(event.target.value)} placeholder={t("events.cityPlaceholder")} aria-label={t("auth.city")} />
       </div>
 
       {events.isPending && <PageLoader />}

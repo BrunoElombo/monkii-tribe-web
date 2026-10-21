@@ -10,9 +10,9 @@ export function EventCard({ event }: { event: EventSummary }) {
   const online = event.type === "LIVESTREAM";
 
   return (
-    <Link to={`/events/${event.id}`} className="card group flex gap-4 p-3 transition hover:border-monkii-500/60">
-      <Cover src={event.coverThumbUrl} alt="" className="h-24 w-24 shrink-0" rounded="rounded-xl" />
-      <div className="min-w-0 md:flex-1">
+    <Link to={`/events/${event.id}`} className="card group flex min-w-0 flex-col gap-3 p-3 transition hover:border-monkii-500/60 sm:flex-row sm:gap-4">
+      <Cover src={event.coverThumbUrl} alt="" className="aspect-video w-full shrink-0 sm:aspect-auto sm:h-24 sm:w-24" rounded="rounded-xl" />
+      <div className="min-w-0 flex-1">
         <p className="text-xs font-semibold uppercase tracking-wide text-monkii-400">{t(`events.types.${event.type}`)}</p>
         <p className="truncate font-display text-lg font-semibold">{event.title}</p>
         <p className="truncate text-sm text-muted">{event.artist.stageName}</p>
@@ -26,7 +26,7 @@ export function EventCard({ event }: { event: EventSummary }) {
         </p>
       </div>
       {event.lowestPriceXaf !== null && (
-        <span className="self-start whitespace-nowrap rounded-full bg-monkii-500/15 px-2.5 py-1 text-xs font-semibold text-monkii-300">
+        <span className="max-w-full self-start truncate whitespace-nowrap rounded-full sm:shrink-0 bg-monkii-500/15 px-2.5 py-1 text-xs font-semibold text-monkii-300">
           {event.lowestPriceXaf === 0 ? t("common.free") : t("events.from", { price: formatXaf(event.lowestPriceXaf, i18n.language) })}
         </span>
       )}
